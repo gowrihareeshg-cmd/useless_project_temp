@@ -114,21 +114,13 @@ For Software:
 
 ## Screenshots
 
-### Screenshot 1
-![Screenshot 1](./Screenshot%202026-09-12%20084204.png)
+![Screenshot 1](./BiscuitProtector2/images/Screenshot%202026-09-12%20084204.png)
+![Screenshot 2](./BiscuitProtector2/images/Screenshot%202026-09-12%20084221.png)
+![Screenshot 3](./BiscuitProtector2/images/Screenshot%202026-09-12%20084228.png)
+![Screenshot 4](./BiscuitProtector2/images/Screenshot%202026-09-12%20084241.png)
 
-### Screenshot 2
-![Screenshot 2](./Screenshot%202026-09-12%20084221.png)
+Workflow:
 
-### Screenshot 3
-![Screenshot 3](./Screenshot%202026-09-12%20084228.png)
-
-### Screenshot 4
-![Screenshot 4](./Screenshot%202026-09-12%20084241.png)
-
-# Diagrams
-
-![Workflow](workflow.png)
 
 *Complete workflow of Biscuit Protector from biscuit selection to the final Dip Score™.*
 

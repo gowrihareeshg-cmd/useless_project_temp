@@ -7,8 +7,8 @@
 ### Team Name: [Your Team Name]
 
 ### Team Members
-- Team Lead: Gowri Hareesh - [College Name]
-- Member 2: [Member Name] - [College Name]
+Team Lead: Gowri Hareesh - Baselios Mathews II College of Engineering,Sasthamcotta
+Member 2: Farhana Nawas - Baselios Mathews II College of Engineering,Sasthamcotta
 
 ### Project Description
 

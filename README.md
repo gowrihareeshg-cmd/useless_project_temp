@@ -161,7 +161,7 @@ Not applicable because the project does not require physical hardware or compone
 ## Team Contributions
 
 - Gowri Hareesh: Project concept, UI design, HTML/CSS development, JavaScript functionality, timer implementation, Biscuit Integrity system, Dip Score™ logic, testing and presentation.
-- [Member 2]&#58; Project development support, testing, documentation, APK preparation, demo preparation and presentation.
+- Farhana Nawas: Project development support, testing, documentation, APK preparation, demo preparation and presentation.
 
 ---
 

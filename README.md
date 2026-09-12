@@ -112,17 +112,19 @@ For Software:
 
 # Screenshots
 
-![Screenshot1](screenshot1.png)
+## Screenshots
 
-*Main Biscuit Protector interface showing biscuit selection and START DIP button.*
+### Screenshot 1
+![Screenshot 1](./Screenshot%202026-09-12%20084204.png)
 
-![Screenshot2](screenshot2.png)
+### Screenshot 2
+![Screenshot 2](./Screenshot%202026-09-12%20084221.png)
 
-*Live dipping screen showing the timer and Biscuit Integrity percentage bar.*
+### Screenshot 3
+![Screenshot 3](./Screenshot%202026-09-12%20084228.png)
 
-![Screenshot3](screenshot3.png)
-
-*Final result showing dipping time, biscuit status and Dip Score™.*
+### Screenshot 4
+![Screenshot 4](./Screenshot%202026-09-12%20084241.png)
 
 # Diagrams
 

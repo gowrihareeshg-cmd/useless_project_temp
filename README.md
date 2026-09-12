@@ -112,8 +112,6 @@ For Software:
 
 # Screenshots
 
-## Screenshots
-
 ![Screenshot 1](./BiscuitProtector2/images/Screenshot%202026-09-12%20084204.png)
 ![Screenshot 2](./BiscuitProtector2/images/Screenshot%202026-09-12%20084221.png)
 ![Screenshot 3](./BiscuitProtector2/images/Screenshot%202026-09-12%20084228.png)

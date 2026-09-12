@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biscuit Protector 2.0 - Ultimate Dipping Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <h1>☕ BISCUIT PROTECTOR <span class="badge">v2.0</span></h1>
+                <p class="tagline">Because every biscuit deserves a safe dip.</p>
+            </div>
+            <div class="top-actions">
+                <button id="soundToggleBtn" class="icon-btn" title="Toggle Sound (M)" aria-label="Toggle Sound">
+                    <span id="soundIcon">🔊</span> Audio ON
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs" role="tablist">
+            <button class="tab-btn active" data-tab="gameTab" role="tab" aria-selected="true">☕ Dip Arena</button>
+            <button class="tab-btn" data-tab="statsTab" role="tab" aria-selected="false">📊 Stats & Badges</button>
+            <button class="tab-btn" data-tab="rulesTab" role="tab" aria-selected="false">📖 Dipper's Guide</button>
+        </nav>
+
+        <!-- Tab 1: Game Arena -->
+        <main id="gameTab" class="tab-content active" role="tabpanel">
+            <div class="card game-card">
+                <!-- Mode & Setup Bar -->
+                <div class="controls-grid">
+                    <div class="control-group">
+                        <label for="gameMode">Game Mode</label>
+                        <select id="gameMode">
+                            <option value="classic">🏆 Classic Dip (Precision)</option>
+                            <option value="endurance">🔥 Endurance Challenge (Survival)</option>
+                            <option value="zen">🧘 Zen Practice (Free Dipping)</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="beverage">Choose Beverage</label>
+                        <select id="beverage">
+                            <option value="chai" data-mult="1.0" data-color="#c16a3a">☕ Cutting Chai (1.0x Soak)</option>
+                            <option value="coffee" data-mult="1.1" data-color="#6f4e37">☕ Filter Coffee (1.1x Hot Soak)</option>
+                            <option value="greenTea" data-mult="0.9" data-color="#8a9a5b">🍵 Green Tea (0.9x Soak)</option>
+                            <option value="milk" data-mult="0.8" data-color="#f3e9d2">🥛 Warm Milk (0.8x Slow Soak)</option>
+                            <option value="cocoa" data-mult="1.2" data-color="#3d2314">🍫 Hot Chocolate (1.2x Heavy Soak)</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="biscuit">Select Biscuit</label>
+                        <select id="biscuit">
+                            <option value="parleg" data-time="2.50" data-name="Parle-G">Parle-G (2.50s - Fast Soak)</option>
+                            <option value="marie" data-time="3.00" data-name="Marie Gold">Marie Gold (3.00s - Standard)</option>
+                            <option value="goodday" data-time="3.50" data-name="Good Day">Good Day (3.50s - Butter Crunch)</option>
+                            <option value="hideandseek" data-time="3.00" data-name="Hide & Seek">Hide & Seek (3.00s - Choco Chip)</option>
+                            <option value="oreo" data-time="4.00" data-name="Oreo">Oreo (4.00s - Cream Sandwich)</option>
+                            <option value="bourbon" data-time="3.20" data-name="Bourbon">Bourbon (3.20s - Choco Sandwich)</option>
+                            <option value="digestive" data-time="4.50" data-name="Digestive">Digestive (4.50s - High Fibre)</option>
+                            <option value="rusk" data-time="5.00" data-name="Rusk / Toast">Rusk / Toast (5.00s - Extra Dry)</option>
+                            <option value="biscoff" data-time="3.80" data-name="Biscoff">Biscoff (3.80s - Caramel Speculoos)</option>
+                            <option value="custom" data-time="3.00" data-name="Custom Biscuit">⚙️ Custom Target Time...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Custom Time Input (Hidden by default) -->
+                <div id="customTimeGroup" class="control-group custom-time-box hidden">
+                    <label for="customTime">Custom Target Seconds (1.0s to 10.0s)</label>
+                    <input type="number" id="customTime" min="1" max="10" step="0.1" value="3.0">
+                </div>
+
+                <!-- Visual Canvas Arena -->
+                <div class="canvas-wrapper">
+                    <canvas id="dipCanvas" width="440" height="260"></canvas>
+                    <div id="canvasOverlay" class="canvas-overlay">
+                        <span id="streakBadge" class="streak-badge hidden">🔥 Streak: 0</span>
+                    </div>
+                </div>
+
+                <!-- Live Timer & Integrity Display -->
+                <div class="hud-display">
+                    <div class="timer-main">
+                        <span id="timer">0.00</span>
+                        <span class="timer-unit">sec</span>
+                        <span class="target-label">/ Target: <span id="targetTimeLabel">2.50</span>s</span>
+                    </div>
+
+                    <div class="progress-section">
+                        <div class="progress-info">
+                            <span>Soggy Meter / Integrity Lost</span>
+                            <span id="percentage">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+
+                    <div id="status" class="status-badge status-ready">🟢 READY FOR DIP</div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="buttons">
+                    <button id="startBtn" class="btn btn-primary" onclick="startDip()">☕ START DIP <span class="key-hint">(Space)</span></button>
+                    <button id="stopBtn" class="btn btn-success" onclick="stopDip()" disabled>🍪 SAVE BISCUIT <span class="key-hint">(Space)</span></button>
+                    <button id="resetBtn" class="btn btn-secondary" onclick="resetDip()">🔄 RESET <span class="key-hint">(R)</span></button>
+                </div>
+
+                <!-- Result Card -->
+                <div id="resultCard" class="result-card hidden">
+                    <div id="resultTitle" class="result-title"></div>
+                    <div id="resultScore" class="result-score"></div>
+                    <div id="resultDetails" class="result-details"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Tab 2: Stats & Achievements -->
+        <section id="statsTab" class="tab-content hidden" role="tabpanel">
+            <div class="card stats-card">
+                <h2>📊 Dipping Career Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number" id="statTotalDips">0</div>
+                        <div class="stat-label">Total Dips</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="statSavedDips">0</div>
+                        <div class="stat-label">Saved Biscuits</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="statLostBiscuits">0</div>
+                        <div class="stat-label">Lost to Tea Bottom</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="statBestStreak">0</div>
+                        <div class="stat-label">Best Survival Streak</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number" id="statAvgAccuracy">0.00s</div>
+                        <div class="stat-label">Avg Error Margin</div>
+                    </div>
+                </div>
+
+                <div class="achievements-section">
+                    <h2>🏆 Master Dipper Achievements</h2>
+                    <div class="achievements-grid" id="achievementsGrid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-footer">
+                    <button class="btn btn-danger" onclick="resetCareerStats()">🗑️ Reset Statistics</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Guide & Manual -->
+        <section id="rulesTab" class="tab-content hidden" role="tabpanel">
+            <div class="card guide-card">
+                <h2>📖 The Official Dipping Handbook</h2>
+                <p>Welcome to <strong>Biscuit Protector</strong>! The golden rule of tea time: <em>a biscuit dipped too short lacks flavor; a biscuit dipped too long sinks into eternity.</em></p>
+
+                <h3>🎮 How to Play</h3>
+                <ol class="guide-list">
+                    <li><strong>Select your biscuit & beverage:</strong> Higher density biscuits (like Rusk or Digestive) hold up longer, while light biscuits (Parle-G) crumble fast! Hotter beverages accelerate soggy absorption.</li>
+                    <li><strong>Press START DIP (or Spacebar):</strong> Watch the liquid soak into the biscuit and listen to the ticking tension audio.</li>
+                    <li><strong>Press SAVE BISCUIT (or Spacebar):</strong> Click just before the soggy meter hits 100%!</li>
+                    <li><strong>Avoid the Drop:</strong> If the timer exceeds 100%, your biscuit will snap and fall to the bottom of the cup with a sad plop!</li>
+                </ol>
+
+                <h3>🔥 Game Modes</h3>
+                <ul>
+                    <li><strong>Classic Dip:</strong> Practice precision timing. Target 100/100 points by stopping right on the target time.</li>
+                    <li><strong>Endurance Challenge:</strong> Survive continuous rounds of random biscuits. One lost biscuit ends your streak!</li>
+                    <li><strong>Zen Practice:</strong> Free dipping with visual soak indicators without game overs.</li>
+                </ul>
+
+                <h3>⌨️ Keyboard Shortcuts</h3>
+                <div class="shortcuts-grid">
+                    <div class="shortcut-item"><kbd>Spacebar</kbd> Start Dip / Save Biscuit</div>
+                    <div class="shortcut-item"><kbd>R</kbd> Reset Dip</div>
+                    <div class="shortcut-item"><kbd>M</kbd> Toggle Sound Mute</div>
+                    <div class="shortcut-item"><kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> Switch Tabs</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Made with ☕ & 🍪 | Biscuit Protector 2.0</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

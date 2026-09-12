@@ -121,8 +121,22 @@ For Software:
 
 Workflow:
 
-
-*Complete workflow of Biscuit Protector from biscuit selection to the final Dip Score™.*
+User Sneezes
+      │
+      ▼
+Capture Sound
+      │
+      ▼
+Analyze Audio
+      │
+      ▼
+Calculate Sneeze Score
+      │
+      ▼
+Generate Rank
+      │
+      ▼
+Display Result
 
 ### Project Workflow
 

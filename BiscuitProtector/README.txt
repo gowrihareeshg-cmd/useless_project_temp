@@ -6,9 +6,8 @@
 
 ### Team Members
 
-- Team Lead: Gowri Hareesh - [College Name]
-- Member 2: [Member Name] - [College Name]
-- Member 3: [Member Name] - [College Name]
+- Team Lead: Gowri Hareesh - Baselios Mathews II College of Engineering
+- Member 2: Farhana navas - Baselios Mathews II College of Engineering
 
 ### Project Description
 
@@ -65,8 +64,8 @@ For Software:
 The project consists of three main files:
 
 - `index.html` - Contains the structure and user interface of the application.
-- `style.css` - Controls the design, layout, colors, buttons, progress bar and overall appearance.
-- `script.js` - Handles the timer, Biscuit Integrity percentage, warning system and Dip Score™ calculation.
+- `style.css` - Controls the design, layout, buttons and Biscuit Integrity progress bar.
+- `script.js` - Handles the timer, percentage calculation, warning system and Dip Score™ calculation.
 
 The application uses JavaScript's real-time timer functionality to calculate the elapsed dipping time.
 
@@ -79,7 +78,7 @@ Different biscuit types have different demonstration benchmark times:
 
 The Biscuit Integrity percentage is calculated according to the elapsed time compared with the selected biscuit's benchmark.
 
-The system also provides four warning levels:
+The system provides four warning levels:
 
 - 🟢 STILL SAFE
 - 🟡 GETTING CLOSE
@@ -106,7 +105,6 @@ BiscuitProtector/
 ├── index.html
 ├── style.css
 └── script.js
-
 Open the project in Visual Studio Code.
 Run the index.html file in a web browser.
 Run
@@ -128,7 +126,7 @@ Watch the timer and Biscuit Integrity percentage.
 Press SAVE BISCUIT to get the final Dip Score™.
 Android APK
 
-The web application is also packaged as an Android APK so that the project can be demonstrated as a mobile application.
+The web application is also packaged as an Android APK for mobile demonstration.
 
 Project Documentation
 
@@ -145,6 +143,7 @@ Final result screen displaying the dipping time, biscuit status and Dip Score™
 Diagrams
 
 Workflow showing the complete Biscuit Protector process from biscuit selection to the final Dip Score™.
+
 Project Workflow
              START
                │
@@ -241,5 +240,4 @@ Dip Score™ calculation demonstration
 Different biscuit benchmark demonstrations
 Team Contributions
 Gowri Hareesh: Project concept, problem identification, UI design, HTML/CSS development, JavaScript functionality, timer implementation, Biscuit Integrity system, Dip Score™ logic, testing and presentation.
-[Member 2]: Project development support, testing, documentation and presentation.
-[Member 3]: Testing, documentation, demo preparation and presentation support.
+Farhana navas : Project development support, testing, documentation, demo preparation and presentation.

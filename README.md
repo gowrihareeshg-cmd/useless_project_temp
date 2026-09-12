@@ -4,7 +4,7 @@
 
 ## Basic Details
 
-### Team Name: [Your Team Name]
+### Team Name: Trash Titans
 
 ### Team Members
 Team Lead: Gowri Hareesh - Baselios Mathews II College of Engineering,Sasthamcotta
